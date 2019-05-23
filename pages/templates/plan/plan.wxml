@@ -1,0 +1,12 @@
+<template name="list">
+<view class='content'>
+<view class='text'>
+<text class='time'>{{time}}\n</text>
+<text class='task'>{{task}}</text>
+</view>
+<view class='btn'>
+<button class='btn1'>删除</button>
+<button class='btn2'>完成</button>
+</view>
+</view>
+</template>

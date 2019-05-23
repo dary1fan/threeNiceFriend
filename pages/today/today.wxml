@@ -1,0 +1,16 @@
+<view class='main' style="background:url('/images/image/bg_today.jpg');background-repeat: no-repeat; background-size: 100% 100%;">
+<text class='today-title' >时间计划表</text>
+<block wx:for="{{plan}}" data="{{...item}}">
+<view class='content' >
+<view class='text'>
+<text class='time'>{{item.time}}\n</text>
+<text class='task'>{{item.task}}</text>
+</view>
+<view class='btn'>
+<button class='btn1'>删除</button>
+<button class='btn2' bind:tap="finish">完成</button>
+</view>
+</view>
+</block>
+<button class='button' bind:tap="addplan" type="primary">添加计划</button>
+</view>

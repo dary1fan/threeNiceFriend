@@ -1,0 +1,12 @@
+<!--pages/hobby/hobby.wxml-->
+<view class='main' style="background:url('/images/image/bg_hobby.jpg');background-repeat: no-repeat; background-size: 100% 100%;">
+ <view class='top'>
+ <text>习惯列表</text>
+ </view>
+ <view wx:for="{{hobbys}}" class='hobby'wx:key="*this">
+ {{item}}
+ <button class='daka' bind:tap="daka">打卡</button>
+ <button class='delete' bind:tap="deletehobby">删除</button>
+ </view> 
+<button class='button' bind:tap="addhobby" type="primary">添加习惯</button>
+</view>

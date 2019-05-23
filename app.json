@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/hobby/hobby",
+    "pages/forget/forget",
+    "pages/hobby/addhobby/addhobby",
+    "pages/forget/addforget/addforget",
+    "pages/forget/detail/detail",
+    "pages/templates/plan/plan",
+    "pages/today/addplan/addplan",
+    "pages/hobby/finished/finished"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1e82d2",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "",
+    "selectedColor": "blue",
+    "list": [
+      {
+        "pagePath": "pages/hobby/hobby",
+        "text": "习惯",
+        "iconPath": "images/tabBar/爱心.png",
+        "selectedIconPath": "images/tabBar/爱心_selected.png"
+      },
+      {
+        "pagePath": "pages/today/today",
+        "text": "今日",
+        "iconPath": "images/tabBar/今日.png",
+        "selectedIconPath": "images/tabBar/今日_selected.png"
+      },
+      {
+        "pagePath": "pages/forget/forget",
+        "text": "备忘",
+        "iconPath": "images/tabBar/笔记本.png",
+        "selectedIconPath": "images/tabBar/笔记本_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

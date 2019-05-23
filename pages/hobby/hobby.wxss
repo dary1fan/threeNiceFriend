@@ -1,0 +1,36 @@
+/* pages/hobby/hobby.wxss */
+.main{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.button{
+ position:fixed; 
+ bottom:0;
+ width: 100%;
+}
+
+.daka{
+  background: green;
+  size: 80rpx;
+  float: right;
+}
+
+.delete{
+  background: green;
+  size: 80rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+
+.hobby{
+  font-size: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.top{
+  font-size: 60rpx;
+  text-align: center;
+}
+

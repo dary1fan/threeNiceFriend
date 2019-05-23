@@ -1,0 +1,8 @@
+<!--pages/today/addplan/addplan.wxml-->
+<view>
+ <form bindsubmit="submitEvent">
+ <input name="time" placeholder='请输入时间' />
+ <input name="task" placeholder='请输入计划' />
+ <button form-type='submit' type="primary">提交</button>
+ </form>
+</view>

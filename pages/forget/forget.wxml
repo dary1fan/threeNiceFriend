@@ -1,0 +1,47 @@
+<!--pages/forget/forget.wxml-->
+<!--js中data中的数据会绑定好，在对应page的wxml中用{{}}即可接收-->
+<image class="toWrite" bindtap="toAddDiary" src="http://bmob-cdn-12920.b0.upaiyun.com/2017/07/17/a0c21208406c7ec2806156de66e68754.jpg"></image>
+
+ <view class = "todo-today1">
+    <view class = "todo-today">
+      <view class = "today-item" wx:for = "{{TodayList}}" wx:key="{{ index }}" bindtap="toggleTodoHandle" id = "{{index}}"   >
+        <icon class = "itemcheckbox"   type = "{{item.completed ? 'success' : 'circle'}}"   color="white"/>
+        <text class = "{{item.completed ? 'itemdescriptiontcompleted':'itemdescriptiont'}}" >{{index}}{{item.description}} </text>
+        <icon class = 'itemremove' type = 'clear' size = '20' color = "white" bindtap="removeTodoHandle" id = '{{index}}' />
+     </view>
+   </view>
+ </view>
+
+
+
+ <view class="js_dialog" id="androidDialog1" style="opacity: 1;" wx:if="{{writeDiary}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog weui-skin_android">
+    <view class="weui-dialog__hd"><strong class="weui-dialog__title">添加备忘</strong>  </view>
+    <form bindsubmit="addDiary" report-submit="true">
+      <view class="weui-dialog__bd">
+        <view class="weui-cells__title">标题</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="title" placeholder="请输入此次备忘的标题" />
+            </view>
+          </view>
+        </view>
+        <view class="weui-cells__title">内容</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea class="weui-textarea" name="content" placeholder="请输入备忘的具体内容" style="height: 3.3em" />
+              <view class="weui-textarea-counter">0/200</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-dialog__ft">
+        <view class="weui-dialog__btn weui-dialog__btn_default" bindtap="noneWindows">取消</view>
+        <button loading="{{loading}}" class="weui-dialog__btn weui-dialog__btn_primary" formType="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

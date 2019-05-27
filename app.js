@@ -1,11 +1,14 @@
 //app.js
 
 var Bmob = require('./utils/bmob.js');
-Bmob.initialize("37eaf80008a69a3a6f60b1658bd6995c", "eac34af63cfa519b4ccf79078e34dd40");
+Bmob.initialize("755ac27a514855e4f4227f4bc18c613a", "515d4167817f5eaeafd6b465dec4848b");
 
 App({
   
   onLaunch: function () {
+
+
+    
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -15,6 +18,8 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+
+        })
       }
     })
     // 获取用户信息
@@ -25,6 +30,10 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
+
+         
+
+
               this.globalData.userInfo = res.userInfo
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -32,8 +41,8 @@ App({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
-            }
-          })
+            }//success end
+          });//wx.getuserInfo end
         }
       }
     })

@@ -1,4 +1,7 @@
 // pages/forget/forget.js
+
+var Bmob = require('../../utils/bmob.js');
+var common = require('../../utils/common.js');
 var app = getApp();
 var that;
 Page({
@@ -32,8 +35,10 @@ Page({
       { description: "明天打上单"},
       { description: "用死歌赢一盘"},
       { description: "打一个小时lol"},
+      { description: "练一刻钟一生所爱" },
+      { description: "不吹牛皮五秒钟" },
     ],
-    input: "新添加的备忘妹妹不开心啦"
+    input: "大嘎好，我是新加入的渣嘎飞我不开心啦"
   },
 
 
@@ -48,7 +53,8 @@ Page({
   noneWindows: function () {
     that.setData({
       writeDiary: false,
-    })
+    });
+
   },
 
   save: function () {
@@ -62,9 +68,12 @@ Page({
  */
   toAddDiary: function (e) {
 
+
     that.setData({
       writeDiary: true
-    })
+      
+    });
+   
    
 
   },
@@ -82,7 +91,9 @@ Page({
       common.showTip("内容不能为空", "loading");
     }
     else {
-
+      that.setData({
+        loading: true
+      });
 
       var todo = that.data.TodayList;
 
@@ -95,10 +106,126 @@ Page({
       //保存记录到本地
       that.save();
           
-      that.setData({
-        loading: true});
-      common.showTip('添加日记成功');
-          that.onShow();
+
+/*  
+      var currentUser = Bmob.User.current();
+
+      var User = Bmob.Object.extend("_User");
+      var UserModel = new User();
+
+      var Memo = Bmob.Object.extend("memo");
+      var memo = new Memo();
+      memo.set("userid", currentUser.id);
+      memo.set("what", title);//保存formId
+      memo.set("details", content);
+     
+      if (currentUser) {
+        UserModel.id = currentUser.id;
+        diary.set("own", UserModel);
+      }
+      //添加数据，第一个入口参数是null
+      memo.save(null, {
+        success: function (result) {
+          // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
+          common.showTip('添加日记成功');
+          that.setData({
+            writeDiary: false,
+            loading: false
+          })
+
+          var currentUser = Bmob.User.current();
+
+          //成功后发送模板消息，这个只能在手机上测试，模拟器里面没有formid
+          // var temp = {
+          //   "touser": currentUser.get("openid"),
+          //   "template_id": "B-2GcobfYnptevxY8G3SdA72YLYGZpOoJO_FEHlouWg",
+          //   "page": "",
+          //   "form_id": formId,
+          //   "data": {
+          //     "keyword1": {
+          //       "value": "SDK测试内容",
+          //       "color": "#173177"
+
+          //     },
+          //     "keyword2": {
+          //       "value": "199.00"
+          //     },
+          //     "keyword3": {
+          //       "value": "123456789"
+          //     },
+          //     "keyword4": {
+          //       "value": "2015年01月05日 12:30"
+          //     }
+          //     ,
+          //     "keyword5": {
+          //       "value": "恭喜您支付成功，如有疑问请反馈与我"
+          //     }
+          //   }
+          //   , "emphasis_keyword": "keyword1.DATA"
+          // }
+          // console.log(temp);
+          // Bmob.sendMessage(temp).then(function (obj) {
+          //   console.log('发送成功');
+
+
+          // }, function (err) {
+
+          //   common.showTip('失败' + err);
+          // });
+
+
+          // 成功后发送主人模板消息，这个只需把openid改正确即可接收到， Bmob后端云公众号回复openid
+          var temp = {
+            "touser": "oUxY3w_jURG89H5wCIvJDPjJ5s2o",
+            "template_id": "-ERkPwp0ntimqH39bggQc_Pj55a18CYLpj-Ert8-c8Y",
+            "url": "http://www.baidu.cn/",
+            "data": {
+              "first": {
+                "value": "您好，Restful 失效，请登录控制台查看。",
+                "color": "#c00"
+              },
+              "keyword1": {
+                "value": "Restful 失效"
+              },
+              "keyword2": {
+                "value": "2017-07-03 16:13:01"
+              },
+              "keyword3": {
+                "value": "高"
+              },
+              "remark": {
+                "value": "如果您十分钟内再次收到此信息，请及时处理。"
+              }
+            }
+          }
+          console.log(temp);
+          Bmob.sendMasterMessage(temp).then(function (obj) {
+            console.log('发送成功');
+
+
+          }, function (err) {
+
+            common.showTip('失败' + err);
+          });
+
+
+
+          that.onShow()
+        },
+        error: function (result, error) {
+          // 添加失败
+          common.showTip('添加备注失败，请重新发布', 'loading');
+
+        }
+      });
+*/
+
+      
+     common.showTip('添加日记成功');
+      that.onShow();
+
+
+      
       
     }
 
